@@ -5,7 +5,6 @@
 ** get_next_line.c
 */
 
-#include "my.h"
 #include "get_next_line.h"
 
 int my_strlen(char *str)
