@@ -42,10 +42,8 @@ char *get_next_line(int fd)
     if (fd < k || str == NULL)
         return (NULL);
     str[k] = '\0';
-    j = read(fd, buffer, READ_SIZE / READ_SIZE);
-    if (j < 0)
-        return (NULL);
-    for (; (j > k) && buffer[k] != '\n'; i++) {
+    for (; (j = read(fd, buffer, READ_SIZE / READ_SIZE) > k)
+    && buffer[k] != '\n'; i++) {
         str = my_realloc(str);
         str[i] = buffer[k];
     }
